@@ -12,9 +12,17 @@ class Falcon9: public Falcon
     private:
     FalconTest* command;
 
+    // Observer
+    bool stage2;
+
     public:
     Falcon9();
     void execute();
+
+
+    // Observer
+    bool getStage2();
+    void setStage2(bool stage);
 
 };
 
