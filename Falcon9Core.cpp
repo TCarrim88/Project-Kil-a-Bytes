@@ -4,6 +4,5 @@
 
 using namespace std;
 
-void Falcon9Core::Orbit(){
-    cout << "In almost orbit" << endl;
-}
+Falcon9Core::Falcon9Core()
+{}
