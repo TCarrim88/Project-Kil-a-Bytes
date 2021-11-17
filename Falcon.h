@@ -3,6 +3,10 @@
 #define __Falcon_h__
 
 #include "Craft.h"
+#include "FalconObserver.h"
+#include <vector>
+
+using namespace std;
 
 // class Craft;
 class Falcon;
@@ -20,6 +24,14 @@ class Falcon: public Craft
     virtual void oceanOn();
     virtual void oceanOff();
     virtual void refurbish();
+
+    // Observer Functions
+    void attach(FalconObserver* o);
+    void detach(FalconObserver* o);
+    void notify();
+
+private:
+    vector<FalconObserver*> observerList;
 };
 
 #endif
