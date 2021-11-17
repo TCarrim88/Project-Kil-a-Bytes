@@ -32,6 +32,14 @@ class FalconHeavy: public Falcon
     void refurbish();
 
 
+    // Observer
+    bool getStage2();
+    void setStage2(bool stage);
+
+
+    private:
+    // Observer
+    bool stage2;
 };
 
 #endif
