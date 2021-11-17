@@ -7,7 +7,10 @@ FalconHeavy::FalconHeavy(){
    this.engineState = false; //engines off by default
    this.launchState = false;
    this.landState = false;
+   this.refurbState = false;
 }
+
+//===============IMPLEMENTATION OF COMMAND FUNCTIONS
 
 //EnginesState getter+setter
 bool FalconHeavy::getEngineState(){
@@ -35,3 +38,14 @@ bool FalconHeavy::getLandState(){
 void FalconHeavy::setLandState(bool state){
     this.landState = state;
 }
+
+//RefurbState getter+setter
+bool FalconHeavy::getRefurbState(){
+    return this.refurbState;
+}
+
+void FalconHeavy::setRefurbState(bool state){
+    this.refurbState = state;
+}
+
+//=============== END OF IMPLEMENTATION OF COMMAND FUNCTIONS

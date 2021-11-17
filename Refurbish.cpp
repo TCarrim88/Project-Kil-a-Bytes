@@ -11,6 +11,16 @@ Refurbish::Refurbish(Falcon *falcon){
 }
 
 void Refurbish::launchExecute(){
-    falconCraft->execute();
-    cout << "Rocket has been refurbished. Proceed to Actual Launch." << endl;
+
+    falconCraft->refurbish();
+    if(falconCraft->getLandState()){  //rocket landing was successful, can refurbish rocket
+
+        cout << "Rocket has been refurbished! Proceed to Actual Launch." << endl;
+        falconCraft->setRefurbState(true);
+    }
+    else{  //Rocket landing was unsuccessful
+        cout << "Rocket Landing was unsuccessful. Cannot refurbish rocket. Actual Launch cannot take place." << endl;
+        falconCraft->setRefurbState(false);
+    }
+    
 }
