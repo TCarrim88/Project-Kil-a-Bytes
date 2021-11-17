@@ -4,6 +4,5 @@
 
 using namespace std;
 
-void MerlinEngine::Orbit(){
-    cout << "In almost orbit" << endl;
-}
+MerlinEngine::MerlinEngine()
+{}
