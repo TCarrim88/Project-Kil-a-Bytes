@@ -7,7 +7,7 @@
 class Craft;
 // class LaunchSimulator;
 class OceanLand;
-
+//Concrete Command
 class OceanLand: public FalconTest
 {
     private:

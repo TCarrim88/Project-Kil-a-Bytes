@@ -13,7 +13,9 @@ class OceanTurnOn: public FalconTest
 {
 	private:
 	Falcon* falconCraft;
-	//
+	//Command attributes:
+	
+    
 
 	public: 
 	OceanTurnOn(Falcon* falcon);

@@ -6,10 +6,11 @@
 using namespace std;
 
 OceanLaunch::OceanLaunch(Falcon* falcon){
-    falconCraft = falcon;
+    this.falconCraft = falcon;
 }
 
 void OceanLaunch::launchExecute(){
-    falconCraft->execute();
-    cout << "Rocket has been launched for drone ship landing in the ocean." << endl;
+    falconCraft->oceanLaunch();
+    cout << "Rocket has been launched for droneShip-landing in the ocean." << endl;
+    
 }

@@ -3,27 +3,23 @@
 #define __Falcon_h__
 
 #include "Craft.h"
-#include "FalconObserver.h"
-#include <vector>
-
-using namespace std;
 
 // class Craft;
 class Falcon;
 //Abstract Fact: AbstProd
 class Falcon: public Craft
 {
-public:
+    public:
     Falcon();
-    virtual void execute();
 
-    // Observer Functions
-    void attach(FalconObserver* o);
-    void detach(FalconObserver* o);
-    void notify();
-
-private:
-    vector<FalconObserver*> observerList;
+    //Command functions:
+    //virtual void execute();
+    virtual void staticFire();
+    virtual void oceanLaunch();
+    virtual void oceanLand();
+    virtual void oceanOn();
+    virtual void oceanOff();
+    virtual void refurbish();
 };
 
 #endif
