@@ -17,7 +17,6 @@ class Falcon9Core:public CraftComponent{
     // bool getSecondStage();
     // void setSecondStage(bool stage);
 
-    void Orbit();
     Falcon9Core(){};
     ~Falcon9Core(){};
 };
@@ -35,7 +34,6 @@ class MerlinEngine:public CraftComponent{
     // bool getSecondStage();
     // void setSecondStage(bool stage);
 
-    void Orbit();
     MerlinEngine(){};
     ~MerlinEngine(){};
 };
@@ -53,8 +51,7 @@ class VacuumMerlinEngine:public CraftComponent{
 
     // bool getSecondStage();
     // void setSecondStage(bool stage);
-
-    void Orbit();
+    
     VacuumMerlinEngine(){};
     ~VacuumMerlinEngine(){};
 };
