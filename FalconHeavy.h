@@ -19,9 +19,11 @@ class FalconHeavy: public Falcon
    public:
 
     bool getEngineState();
-    void setEngineState(bool state){
-        this.engineState = state;
-    }
+    void setEngineState(bool state)
+    bool getLaunchState();
+    void setLaunchState(bool state);
+    bool getLandState();
+    void setLandState(bool state);
     //Command Functions:
     //void execute();
     void staticFire();
