@@ -23,7 +23,7 @@ class FalconHeavy: public Falcon
     //Command Functions:
     //getters and setters:
     bool getEngineState();
-    void setEngineState(bool state)
+    void setEngineState(bool state);
     bool getLaunchState();
     void setLaunchState(bool state);
     bool getLandState();
