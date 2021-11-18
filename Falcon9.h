@@ -18,7 +18,7 @@ class Falcon9: public Falcon, public CraftComponent
     bool launchState;   //launch successful = true, launch unsuccessful = false (needs to be true for land to be successful)
     bool landState;     //land successful = true, land unsuccessful = false (needs to be true for refurbish to be successful)
     bool refurbState;   //refurbish successful = true, refurbish successful = false (needs to be true to proceed to actual launch) 
-    bool
+    bool staticState;
 
     // Observer
     bool stage2;
