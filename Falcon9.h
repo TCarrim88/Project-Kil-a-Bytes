@@ -18,7 +18,7 @@ class Falcon9: public Falcon, public CraftComponent
     bool launchState;   //launch successful = true, launch unsuccessful = false (needs to be true for land to be successful)
     bool landState;     //land successful = true, land unsuccessful = false (needs to be true for refurbish to be successful)
     bool refurbState;   //refurbish successful = true, refurbish successful = false (needs to be true to proceed to actual launch) 
-    //FalconTest* command;
+    bool
 
     // Observer
     bool stage2;
@@ -27,7 +27,7 @@ class Falcon9: public Falcon, public CraftComponent
     vector<CraftComponent*> components;
 
     public:
-    Falcon9(){};//already implemented here
+    Falcon9();
     ~Falcon9(){};//already implemented here
     void execute();
 
@@ -46,8 +46,9 @@ class Falcon9: public Falcon, public CraftComponent
     void setLandState(bool state);
     bool getRefurbState();
     void setRefurbState(bool state);
+    bool getStaticState();
+    void setStaticState(bool state);
     
-    //void execute();
     void staticFire();
     void oceanLaunch();
     void oceanLand();

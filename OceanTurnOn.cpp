@@ -13,6 +13,5 @@ OceanTurnOn::OceanTurnOn(Falcon *falcon){
 
 void OceanTurnOn::launchExecute(){
     falconCraft->oceanOn();
-    cout << "Engines turned on." << endl;
-    falconCraft.getEngineState(true); //switch engines on
+    
 }

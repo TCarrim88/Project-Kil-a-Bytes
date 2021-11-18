@@ -9,6 +9,5 @@ StaticTest::StaticTest(Falcon *falcon){
 }
 
 void StaticTest::launchExecute(){
-    falconCraft->execute();
-    cout << "Engines Fired up successfully" << endl;
+    falconCraft->staticFire();
 }

@@ -10,6 +10,4 @@ OceanTurnOff::OceanTurnOff(Falcon* falcon){
 
 void OceanTurnOff::launchExecute(){
     falconCraft->oceanOff();
-    cout << "Engines Turned off" << endl;
-    falconCraft->setEngineState(false); //switch engines off
 }
