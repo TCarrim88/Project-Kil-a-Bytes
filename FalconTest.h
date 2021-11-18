@@ -10,7 +10,7 @@ class FalconTest;
 class FalconTest
 {
 	public: 
-	FalconTest(){};
-	virtual void launchExecute(); //execute()
+	FalconTest();
+	virtual void launchExecute() = 0; //execute()
 };
 #endif

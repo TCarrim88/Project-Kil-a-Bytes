@@ -8,11 +8,10 @@
 using namespace std;
 
 OceanTurnOn::OceanTurnOn(Falcon *falcon){
-    this.falconCraft = falcon;
+    falconCraft = falcon;
 }
 
 void OceanTurnOn::launchExecute(){
     falconCraft->oceanOn();
-    cout << "Engines turned on." << endl;
-    falconCraft.getEngineState(true); //switch engines on
+    
 }

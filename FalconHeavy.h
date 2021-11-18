@@ -9,6 +9,7 @@ using std::vector;
 
 // class Falcon;
 //class FalconHeavy;
+//Command: Reciever
 
 class FalconHeavy: public Falcon, public CraftComponent
 {
@@ -18,7 +19,8 @@ class FalconHeavy: public Falcon, public CraftComponent
     bool launchState;   //launch successful = true, launch unsuccessful = false (needs to be true for land to be successful)
     bool landState;     //land successful = true, land unsuccessful = false (needs to be true for refurbish to be successful)
     bool refurbState;   //refurbish successful = true, refurbish successful = false (needs to be true to proceed to actual launch) 
-    
+    bool staticState;
+
     // Observer
     bool stage2;
 
@@ -26,7 +28,7 @@ class FalconHeavy: public Falcon, public CraftComponent
     vector<CraftComponent*> components;
 
    public:
-    FalconHeavy(){}; //already implemented here
+    FalconHeavy();
     ~FalconHeavy(){};//already implemented here
 
     //Command Functions:
@@ -39,8 +41,9 @@ class FalconHeavy: public Falcon, public CraftComponent
     void setLandState(bool state);
     bool getRefurbState();
     void setRefurbState(bool state);
+    bool getStaticState();
+    void setStaticState(bool state);
 
-    //void execute();
     void staticFire();
     void oceanLaunch();
     void oceanLand();
