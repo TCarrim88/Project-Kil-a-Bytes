@@ -13,9 +13,11 @@ class Falcon;
 //Abstract Fact: AbstProd
 class Falcon: public Craft
 {
+    private:
+    //bool refurbState (needed for actual launch)
+    
     public:
     Falcon();
-
     //Command functions:
     //virtual void execute();
     virtual void staticFire();
