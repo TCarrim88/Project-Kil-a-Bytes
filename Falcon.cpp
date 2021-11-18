@@ -14,7 +14,17 @@ void Falcon::attach(FalconObserver* o) {
 
 //****** remove an obsever to list of observers
 void Falcon::detach(FalconObserver* o){
-    observerList.erase(std::remove(observerList.begin(), observerList.end(), o), observerList.end());
+    bool found = false;
+	vector<FalconObserver*>::iterator it = observerList.begin();
+	while ((it != observerList.end()) && (! found))
+	{
+		if (*it == o)
+		{
+			found = true;
+			observerList.erase(it);
+		}
+		++it;
+	}
 }
 
 //****** notify all observers in list of observers

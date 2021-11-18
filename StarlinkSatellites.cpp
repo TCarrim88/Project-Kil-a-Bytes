@@ -18,7 +18,17 @@ class StarlinkSatellites //prototype
 
     // ***** Detach Observer from observerList
     void detach(StarlinkLaunchObserver* s){
-        observerList.erase(std::remove(observerList.begin(), observerList.end(), s), observerList.end());
+        bool found = false;
+	    vector<StarlinkLaunchObserver*>::iterator it = observerList.begin();
+	    while ((it != observerList.end()) && (! found))
+	    {
+		    if (*it == s)
+		    {
+			    found = true;
+                observerList.erase(it);
+	        }
+		    ++it;
+	    }
     }
 
     // ***** Notify Observers in observerList
