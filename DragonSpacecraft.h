@@ -1,5 +1,5 @@
-#ifndef CREW_DRAGON_H
-#define CREW_DRAGON_H
+#ifndef DRAGON_SPACECRAFT_H
+#define DRAGON_SPACECRAFT_H
 
 #include <iostream>
 #include <map>
@@ -8,24 +8,25 @@
 using namespace std;
 
 
-class CrewDragon {
+class DragonSpacecraft {
 
     private:
     map<string, string> part;
 
     public: 
-    CrewDragon();
-    CrewDragon(string name);
+    DragonSpacecraft();
+
+    DragonSpacecraft(string name);
 	
-		CrewDragon(const CrewDragon& b);
+		DragonSpacecraft(const DragonSpacecraft& b);
 		
 		void setPart(string key, string value);
 
 		void show();
 
-        void send();
+    void send();
 
-        void returnHome();
+    
         
 };
 
