@@ -7,6 +7,9 @@ class CraftComponent{
     public:
     virtual void Orbit();
     CraftComponent(){};
-    ~CraftComponent(){};
+    virtual ~CraftComponent(){};
+
+    //Decorator
+    virtual void add(CraftComponent*);
 };
 #endif;
