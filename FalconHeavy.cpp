@@ -117,6 +117,7 @@ void FalconHeavy::oceanLand(){
 
         cout << "Rocket has successfully landed on drone ship in the ocean" << endl;
         setLandState(true);
+        setEngineState(false); //switch off engines after landing
     }
    else{ //launch was unsuccessful
         cout << "Rocket cannot Land as it has not been Launched." << endl;
