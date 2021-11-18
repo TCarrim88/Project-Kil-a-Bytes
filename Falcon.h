@@ -20,12 +20,12 @@ class Falcon: public Craft
     Falcon();
     //Command functions:
     //virtual void execute();
-    virtual void staticFire();
-    virtual void oceanLaunch();
-    virtual void oceanLand();
-    virtual void oceanOn();
-    virtual void oceanOff();
-    virtual void refurbish();
+    virtual void staticFire() = 0;
+    virtual void oceanLaunch() = 0;
+    virtual void oceanLand() = 0;
+    virtual void oceanOn() = 0;
+    virtual void oceanOff() = 0;
+    virtual void refurbish() = 0;
 
     // Observer Functions
     void attach(FalconObserver* o);
