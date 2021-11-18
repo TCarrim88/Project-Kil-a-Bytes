@@ -11,6 +11,6 @@ class FalconTest
 {
 	public: 
 	FalconTest(){};
-	virtual void launchExecute(); //execute()
+	virtual void launchExecute() = 0; //execute()
 };
 #endif
