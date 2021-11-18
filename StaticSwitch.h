@@ -1,7 +1,7 @@
 #ifndef __StaticSwitch_h__
 #define __StaticSwitch_h__
 #include "FalconTest.h"
-
+//invoker for command
 class StaticSwitch{
 
     private:
