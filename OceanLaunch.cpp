@@ -6,7 +6,7 @@
 using namespace std;
 
 OceanLaunch::OceanLaunch(Falcon* falcon){
-    this.falconCraft = falcon;
+    falconCraft = falcon;
 }
 
 void OceanLaunch::launchExecute(){

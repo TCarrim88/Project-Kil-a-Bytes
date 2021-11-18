@@ -4,11 +4,11 @@
 using namespace std;
 
 Falcon9::Falcon9(){
-    this.engineState = false; //engines off by default
-   this.launchState = false;
-   this.landState = false;
-   this.refurbState = false;
-   this.staticState = false;
+engineState = false; //engines off by default
+   launchState = false;
+   landState = false;
+   refurbState = false;
+   staticState = false;
 }
 // Observer functions
 bool Falcon9::getStage2() {
@@ -24,46 +24,46 @@ void Falcon9::setStage2(bool stage){
 
 //EnginesState getter+setter
 bool Falcon9::getEngineState(){
-    return this.engineState;
+    return engineState;
 }
 
 void Falcon9::setEngineState(bool state){
-    this.engineState = state;
+    engineState = state;
 }
 
 //LaunchState getter+setter
 bool Falcon9::getLaunchState(){
-    return this.launchState;
+    return launchState;
 }
 
 void Falcon9::setLaunchState(bool state){
-    this.launchState = state;
+    launchState = state;
 }
 
 //LandState getter+setter
 bool Falcon9::getLandState(){
-    return this.landState;
+    return landState;
 }
 
 void Falcon9::setLandState(bool state){
-    this.landState = state;
+    landState = state;
 }
 
 //RefurbState getter+setter
 bool Falcon9::getRefurbState(){
-    return this.refurbState;
+    return refurbState;
 }
 
 void Falcon9::setRefurbState(bool state){
-    this.refurbState = state;
+    refurbState = state;
 }
 
 bool Falcon9::getStaticState(){
-    return this.staticState;
+    return staticState;
 }
 
 void Falcon9::setStaticState(bool state){
-    this.staticState = state;
+    staticState = state;
 }
 
 void Falcon9::staticFire(){

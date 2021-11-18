@@ -5,11 +5,11 @@
 using namespace std;
 
 FalconHeavy::FalconHeavy(){
-   this.engineState = false; //engines off by default
-   this.launchState = false;
-   this.landState = false;
-   this.refurbState = false;
-   this.staticState = false;
+   engineState = false; //engines off by default
+   launchState = false;
+   landState = false;
+   refurbState = false;
+   staticState = false;
 }
 
 // Observer functions
@@ -26,46 +26,46 @@ void FalconHeavy::setStage2(bool stage){
 
 //EnginesState getter+setter
 bool FalconHeavy::getEngineState(){
-    return this.engineState;
+    return engineState;
 }
 
 void FalconHeavy::setEngineState(bool state){
-    this.engineState = state;
+    engineState = state;
 }
 
 //LaunchState getter+setter
 bool FalconHeavy::getLaunchState(){
-    return this.launchState;
+    return launchState;
 }
 
 void FalconHeavy::setLaunchState(bool state){
-    this.launchState = state;
+    launchState = state;
 }
 
 //LandState getter+setter
 bool FalconHeavy::getLandState(){
-    return this.landState;
+    return landState;
 }
 
 void FalconHeavy::setLandState(bool state){
-    this.landState = state;
+    landState = state;
 }
 
 //RefurbState getter+setter
 bool FalconHeavy::getRefurbState(){
-    return this.refurbState;
+    return refurbState;
 }
 
 void FalconHeavy::setRefurbState(bool state){
-    this.refurbState = state;
+    refurbState = state;
 }
 
 bool FalconHeavy::getStaticState(){
-    return this.staticState;
+    return staticState;
 }
 
 void FalconHeavy::setStaticState(bool state){
-    this.staticState = state;
+    staticState = state;
 }
 
 //conc comm functions

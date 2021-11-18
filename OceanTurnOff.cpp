@@ -5,7 +5,7 @@
 using namespace std;
 
 OceanTurnOff::OceanTurnOff(Falcon* falcon){
-    this.falconCraft = falcon; 
+    falconCraft = falcon; 
 }
 
 void OceanTurnOff::launchExecute(){

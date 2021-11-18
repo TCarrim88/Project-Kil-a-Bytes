@@ -8,7 +8,7 @@
 using namespace std;
 
 OceanTurnOn::OceanTurnOn(Falcon *falcon){
-    this.falconCraft = falcon;
+    falconCraft = falcon;
 }
 
 void OceanTurnOn::launchExecute(){

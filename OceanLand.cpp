@@ -5,7 +5,7 @@
 using namespace std;
 
 OceanLand::OceanLand(Falcon* falcon){
-    this.falconCraft = falcon;
+    falconCraft = falcon;
 }
 
 void OceanLand::launchExecute(){
