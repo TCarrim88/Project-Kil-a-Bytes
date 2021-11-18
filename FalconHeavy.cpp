@@ -1,6 +1,7 @@
 #include "FalconHeavy.h"
 #include "Falcon.h"
 #include <iostream>
+#include <vector>
 using namespace std;
 
 FalconHeavy::FalconHeavy(){
@@ -59,3 +60,15 @@ void FalconHeavy::setRefurbState(bool state){
 }
 
 //=============== END OF IMPLEMENTATION OF COMMAND FUNCTIONS
+
+
+//Decorator
+void FalconHeavy::add(CraftComponent* c){
+    components.push_back(c);
+}
+
+void FalconHeavy::print(){
+    vector<CraftComponent*>::iterator it;
+    for (it = components.begin(); it != components.end(); ++it)
+    (*it)->print();
+}

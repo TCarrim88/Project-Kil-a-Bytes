@@ -1,10 +1,7 @@
 #include "Falcon9.h"
 #include "Falcon.h"
+#include <vector>
 using namespace std;
-
-Falcon9::Falcon9(){
-    
-}
 
 
 // Observer functions
@@ -60,3 +57,16 @@ void Falcon9::setRefurbState(bool state){
 }
 
 //=============== END OF IMPLEMENTATION OF COMMAND FUNCTIONS
+
+
+//Decorator
+void Falcon9::add(CraftComponent* c){
+    components.push_back(c);
+}
+
+void Falcon9::print(){
+    vector<CraftComponent*>::iterator it;
+    for (it = components.begin(); it != components.end(); ++it)
+    (*it)->print();
+}
+

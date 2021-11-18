@@ -5,11 +5,12 @@
 //Decorator: Component
 class CraftComponent{   
     public:
-    virtual void Orbit();
-    CraftComponent(){};
-    virtual ~CraftComponent(){};
+        virtual void Orbit();
+        CraftComponent();
+        virtual ~CraftComponent();
 
-    //Decorator
-    virtual void add(CraftComponent*);
+        //Decorator
+        virtual void add(CraftComponent*);
+        virtual void print() = 0;
 };
-#endif;
+#endif

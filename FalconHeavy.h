@@ -3,11 +3,14 @@
 #define __FalconHeavy_h__
 
 #include "Falcon.h"
+#include "CraftComponent.h"
+#include <vector>
+using std::vector;
 
 // class Falcon;
-class FalconHeavy;
+//class FalconHeavy;
 
-class FalconHeavy: public Falcon
+class FalconHeavy: public Falcon, public CraftComponent
 {
     private:
     //command attributes:
@@ -16,10 +19,16 @@ class FalconHeavy: public Falcon
     bool landState;     //land successful = true, land unsuccessful = false (needs to be true for refurbish to be successful)
     bool refurbState;   //refurbish successful = true, refurbish successful = false (needs to be true to proceed to actual launch) 
     
+    // Observer
+    bool stage2;
+
+    //Decorator
+    vector<CraftComponent*> components;
 
    public:
-    FalconHeavy();
-   
+    FalconHeavy(){}; //already implemented here
+    ~FalconHeavy(){};//already implemented here
+
     //Command Functions:
     //getters and setters:
     bool getEngineState();
@@ -44,10 +53,14 @@ class FalconHeavy: public Falcon
     bool getStage2();
     void setStage2(bool stage);
 
+    //Decorator
+    void add(CraftComponent*);
+    void print();
 
-    private:
-    // Observer
-    bool stage2;
+
+    
+
+    
 };
 
 #endif

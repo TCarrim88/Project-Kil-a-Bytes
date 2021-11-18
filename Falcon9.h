@@ -3,11 +3,14 @@
 #define __Falcon9_h__
 #include "FalconTest.h"
 #include "Falcon.h"
+#include "CraftComponent.h"
+#include <vector>
+using std::vector;
 
 // class Falcon;
-class Falcon9;
+//class Falcon9;
 
-class Falcon9: public Falcon
+class Falcon9: public Falcon, public CraftComponent
 {
     private:
     //Command attributes:
@@ -20,8 +23,12 @@ class Falcon9: public Falcon
     // Observer
     bool stage2;
 
+    //Decorator
+    vector<CraftComponent*> components;
+
     public:
-    Falcon9();
+    Falcon9(){};//already implemented here
+    ~Falcon9(){};//already implemented here
     void execute();
 
 
@@ -47,6 +54,10 @@ class Falcon9: public Falcon
     void oceanOn(); //OceanTurnOn
     void oceanOff();
     void refurbish();
+
+    //Decorator
+    void add(CraftComponent*);
+    void print();
 
 };
 
