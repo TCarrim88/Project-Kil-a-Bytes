@@ -1,6 +1,7 @@
 #pragma once
+#include "Starlink.h"
 #include "StarlinkLaunchObserver.h"
-#include "StarlinkSatellites.h"
+#include "StarlinkSatellites.cpp"
 
 class StarlinkConcreteLaunchObs: public StarlinkLaunchObserver {
 public:

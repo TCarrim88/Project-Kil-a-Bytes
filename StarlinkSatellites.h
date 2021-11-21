@@ -1,22 +1,31 @@
-#ifndef STARLINKSATELLITES_H
-#define STARLINKSATELLITES_H
-#include <iostream>
-#include <string>
-#include "Colleague.h"
+#ifndef STARLINKSATELLITE_H
+#define STARLINKSATELLITE_H
+#include "StarlinkLaunchObserver.h"
+
+#include <vector>
 using namespace std;
-class StarlinkSatellites
+
+class StarlinkSatellites //prototype
 {
-private:
-    /* data */
-public:
-    int id;
-    Colleague* col;
+    public:
+	
     StarlinkSatellites();
-    ~StarlinkSatellites();
+    virtual StarlinkSatellites* cluster()=0;
+
+    // Observer
+    // ***** Attach an Observer to observerList
+    void attach(StarlinkLaunchObserver* s);
+
+    // ***** Detach Observer from observerList
+    void detach(StarlinkLaunchObserver* s);
+
+    // ***** Notify Observers in observerList
+    void notify();
+
+
+    private:
+    // Observer
+    // ***** List of StarlinkLaunchObservers
+    vector<StarlinkLaunchObserver*> observerList;
 };
-
-StarlinkSatellites::StarlinkSatellites(/* args */){}
-
-StarlinkSatellites::~StarlinkSatellites(){}
-
 #endif
