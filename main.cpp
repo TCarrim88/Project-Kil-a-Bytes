@@ -180,19 +180,19 @@ int main(){
     cout << endl;
 
     // Variable to store Products */
-    CrewDragon CrewD[2];
-    DragonSpacecraft DSpacecraft[2];
+    CrewDragon CrewD;
+    DragonSpacecraft DSpacecraft;
 
   //DragonSpacecraft  context;
 	SendAndReturn*  sendANDreturn;
 	sendANDreturn= new SendCargo();
-	DSpacecraft[2] = DragonSpacecraft(sendANDreturn);
+	DSpacecraft = DragonSpacecraft(sendANDreturn);
 	cout<<endl;
 
 //CrewDragon Context
   SendAndReturn*  sendANDreturn1;
 	sendANDreturn1= new SendAndReturnHumansAndCargo();
-	CrewD[2] = CrewDragon(sendANDreturn1);
+	CrewD = CrewDragon(sendANDreturn1);
 	cout<<endl;
 
 	
@@ -204,25 +204,30 @@ int main(){
     // Director: Shop uses the same builders to construct better variants of these toys
     CrewDragonDirector* cdd = new CrewDragonDirector(machine0);
     cdd->construct();
-    CrewD[1] = ((CrewDragonCB*) machine0)->getCrewDragon();
+    CrewD = ((CrewDragonCB*) machine0)->getCrewDragon();
     delete cdd;
 
     DragonSpacecraftDirector* dsd = new DragonSpacecraftDirector(machine1);
     dsd->construct();
-    DSpacecraft[1] = ((DragonSpacecraftCB*) machine1)->getDragonSpacecraft();
+    DSpacecraft = ((DragonSpacecraftCB*) machine1)->getDragonSpacecraft();
     
     delete dsd;
     
 	
-    cout<<DSpacecraft[2].send()<<endl; 
-    cout<<CrewD[2].send()<<endl; 
+    cout<<DSpacecraft.send()<<endl; 
+    cout<<CrewD.send()<<endl; 
     
 
     // clean up
     delete machine0;
     delete machine1;
 
-    cout << "=====================PROTOTYPE AND OBSERVER TEMPLATE TEST=====================" << endl;
+    cout << "=====================TEMPLATE TEST=====================" << endl;
+    cout << endl;
+
+    
+
+    cout << "=====================PROTOTYPE AND OBSERVER TEST=====================" << endl;
     cout << endl;
 
     //////////////////////////Starlink Observer//////////////////////////////
@@ -243,6 +248,8 @@ int main(){
     FalconObserver * falconObserver= new ConcreteFalconObserver9(falc9);
     falconObserver->update();
     falc9->attach(falconObserver);
+
+    
 
 
 
