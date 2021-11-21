@@ -1,5 +1,3 @@
-#include "Mediator.h"
-
 Mediator::Mediator(/* args */){
     nextId=0;
 }
@@ -7,7 +5,7 @@ Mediator::Mediator(/* args */){
 Mediator::~Mediator(){}
 
 int Mediator::registerMe(Colleague* Me){
-    StarlinkSatellites* satellite=new StarlinkSatellites();
+    Starlink* satellite=new Starlink();
     satellite->col=Me;
     satellite->id=nextId++;
     listOfSatellites.push_back(satellite);
@@ -15,15 +13,16 @@ int Mediator::registerMe(Colleague* Me){
     return satellite->id;
 }
 
+#include "Mediator.h"
 void Mediator::broadcast(string message){
-    list<StarlinkSatellites*>::iterator it;
+    list<Starlink*>::iterator it;
     for(it=listOfSatellites.begin();it!=listOfSatellites.end();++it){
         (*it)->col->receiveMessage("Broadcast:" +message);
     }
 }
 
 bool Mediator::talkTo(int id,string message){
-    list<StarlinkSatellites*>::iterator it;
+    list<Starlink*>::iterator it;
     bool found = false;
     it=listOfSatellites.begin();
     while((it!=listOfSatellites.end())&&(!found)){
@@ -42,7 +41,7 @@ bool Mediator::talkTo(int id,string message){
 
 void Mediator::leave(int id){
     int count=0;
-    list<StarlinkSatellites*>::iterator it;
+    list<Starlink*>::iterator it;
     bool found = false;
     it=listOfSatellites.begin();
     while((it!=listOfSatellites.end())&&(!found)){
@@ -54,7 +53,7 @@ void Mediator::leave(int id){
             count++;
         }
     }
-    if(found){
+    if(found==true){
         cout<<(*it)->id<<" has lost contact! "<<endl;
         listOfSatellites.erase(it);
     }
