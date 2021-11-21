@@ -17,7 +17,7 @@ class Falcon9Core:public CraftComponent{
     // bool getSecondStage();
     // void setSecondStage(bool stage);
 
-    Falcon9Core(){};
+    Falcon9Core();
     ~Falcon9Core(){};
 };
 
