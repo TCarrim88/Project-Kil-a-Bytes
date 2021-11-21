@@ -6,4 +6,4 @@ class VacuumMEFactory{
     public:
     CraftComponent* createEngine();
 };
-#endif;
+#endif

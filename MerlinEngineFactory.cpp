@@ -3,6 +3,6 @@
 #include <iostream>
 using namespace std;
 
-CraftComponent *MerlinEngineFactory::createEngine(){
-    return new  MerlinEngine();
-}
+//CraftComponent *MerlinEngineFactory::createEngine(){
+    //return new  MerlinEngine();
+//}

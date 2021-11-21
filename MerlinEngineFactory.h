@@ -6,4 +6,4 @@ class MerlinEngineFactory{
     public:
     CraftComponent* createEngine();
 };
-#endif;
+#endif

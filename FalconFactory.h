@@ -6,4 +6,4 @@ class FalconFactory{
     public:
     virtual Falcon* createFalcon();
 };
-#endif;
+#endif

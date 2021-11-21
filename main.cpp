@@ -4,6 +4,7 @@
 #include "LaserColleague.h"
 #include "RadioColleague.h"
 
+
 //command headers
 #include "Falcon.h"
 #include "FalconHeavy.h"
@@ -194,5 +195,14 @@ int main(){
     FalconObserver * falconObserver= new ConcreteFalconObserver9(falc9);
     falconObserver->update();
     falc9->attach(falconObserver);
+
+
+
+
+
+
+
+        cout << "=====================MEDIATOR=====================" << endl;
+
     return 0;
 }

@@ -11,11 +11,4 @@ public:
     ~RadioMediator();
 };
 
-RadioMediator::RadioMediator(string n)
-{
-    name = n;
-}
-
-RadioMediator::~RadioMediator(){}
-
 #endif

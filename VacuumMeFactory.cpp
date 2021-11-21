@@ -3,6 +3,6 @@
 #include <iostream>
 using namespace std;
 
-CraftComponent *VacuumMEFactory::createEngine(){
-    return new  VacuumMerlinEngine();
-}
+//CraftComponent *VacuumMEFactory::createEngine(){
+    //return new  VacuumMerlinEngine();
+//}

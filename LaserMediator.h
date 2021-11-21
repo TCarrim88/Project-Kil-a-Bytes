@@ -12,13 +12,4 @@ public:
     ~LaserMediator();
 };
 
-LaserMediator::LaserMediator(string n)
-{
-    name=n;
-}
-
-LaserMediator::~LaserMediator()
-{
-}
-
 #endif

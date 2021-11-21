@@ -20,21 +20,6 @@ public:
     virtual ~Colleague();
 };
 
-Colleague::Colleague(/* args */){
-    Med=0;
-    myId=-1;
-}
 
-Colleague::~Colleague(){}
 
-/*
-void Colleague::reg(Mediator* med){
-    Med=med;
-    myId=Med->registerMe(this);
-}
-
-void Colleague::leave(){
-    Med->leave(myId);
-}
-*/
 #endif
