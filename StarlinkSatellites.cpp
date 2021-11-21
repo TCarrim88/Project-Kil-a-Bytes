@@ -1,12 +1,15 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "Colleague.h"
 #include "StarlinkLaunchObserver.h"
 using namespace std;
 
 class StarlinkSatellites //prototype
 {
     public:
+	int id;
+    Colleague* col;
     StarlinkSatellites(){};
     virtual StarlinkSatellites* cluster()=0;
 
