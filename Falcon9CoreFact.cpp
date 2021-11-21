@@ -3,6 +3,6 @@
 #include <iostream>
 using namespace std;
 
-//CraftComponent *Falcon9CoreFactory::createEngine(){
-    // new Falcon9Core();
-//}
+CraftComponent *Falcon9CoreFactory::createEngine(){
+   return new Falcon9Core();
+}
