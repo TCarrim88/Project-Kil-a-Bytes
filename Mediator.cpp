@@ -1,3 +1,5 @@
+
+#include "Mediator.h"
 Mediator::Mediator(/* args */){
     nextId=0;
 }
@@ -13,7 +15,6 @@ int Mediator::registerMe(Colleague* Me){
     return satellite->id;
 }
 
-#include "Mediator.h"
 void Mediator::broadcast(string message){
     list<Starlink*>::iterator it;
     for(it=listOfSatellites.begin();it!=listOfSatellites.end();++it){
