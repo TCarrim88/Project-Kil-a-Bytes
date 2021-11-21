@@ -55,4 +55,4 @@ class VacuumMerlinEngine:public CraftComponent{
     VacuumMerlinEngine(){};
     ~VacuumMerlinEngine(){};
 };
-#endif;
+#endif
