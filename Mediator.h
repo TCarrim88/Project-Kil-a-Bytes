@@ -1,12 +1,12 @@
 #ifndef MEDIATOR_H
 #define MEDIATOR_H
-#include "StarlinkSatellite.h"
+#include "StarlinkSatellites.h"
 #include <list>
 class Mediator
 {
 private:
     int nextId;
-    list<StarlinkSatellite*> listOfSatellites;
+    list<StarlinkSatellites*> listOfSatellites;
     /* data */
 public:
     Mediator(/* args */);
@@ -25,7 +25,7 @@ Mediator::Mediator(/* args */){
 Mediator::~Mediator(){}
 
 int Mediator::registerMe(Colleague* Me){
-    StarlinkSatellite* satellite=new StarlinkSatellite();
+    StarlinkSatellites* satellite=new StarlinkSatellites();
     satellite->col=Me;
     satellite->id=nextId++;
     listOfSatellites.push_back(satellite);
@@ -34,14 +34,14 @@ int Mediator::registerMe(Colleague* Me){
 }
 
 void Mediator::broadcast(string message){
-    list<StarlinkSatellite*>::iterator it;
+    list<StarlinkSatellites*>::iterator it;
     for(it=listOfSatellites.begin();it!=listOfSatellites.end();++it){
         (*it)->col->receiveMessage("Broadcast:" +message);
     }
 }
 
 bool Mediator::talkTo(int id,string message){
-    list<StarlinkSatellite*>::iterator it;
+    list<StarlinkSatellites*>::iterator it;
     bool found = false;
     it=listOfSatellites.begin();
     while((it!=listOfSatellites.end())&&(!found)){
@@ -60,7 +60,7 @@ bool Mediator::talkTo(int id,string message){
 
 void Mediator::leave(int id){
     int count=0;
-    list<StarlinkSatellite*>::iterator it;
+    list<StarlinkSatellites*>::iterator it;
     bool found = false;
     it=listOfSatellites.begin();
     while((it!=listOfSatellites.end())&&(!found)){
