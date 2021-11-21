@@ -1,3 +1,9 @@
+//mediator
+#include "LaserMediator.h"
+#include "RadioMediator.h"
+#include "LaserColleague.h"
+#include "RadioColleague.h"
+
 //command headers
 #include "Falcon.h"
 #include "FalconHeavy.h"
