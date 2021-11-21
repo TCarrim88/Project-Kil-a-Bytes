@@ -1,6 +1,9 @@
 #ifndef DRAGON_SPACECRAFT_H
 #define DRAGON_SPACECRAFT_H
 
+
+#include "SendAndReturn.h"
+
 #include <iostream>
 #include <map>
 #include <cstring>
@@ -12,9 +15,12 @@ class DragonSpacecraft {
 
     private:
     map<string, string> part;
+    SendAndReturn* SandR;
 
     public: 
     DragonSpacecraft();
+
+    DragonSpacecraft(SendAndReturn*);  // Strategy Pattern
 
     DragonSpacecraft(string name);
 	
@@ -24,7 +30,7 @@ class DragonSpacecraft {
 
 		void show();
 
-    void send();
+    string send();  //strategy 
 
     
         

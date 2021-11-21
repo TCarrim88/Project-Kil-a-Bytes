@@ -1,6 +1,8 @@
 #ifndef CREW_DRAGON_H
 #define CREW_DRAGON_H
 
+#include "SendAndReturn.h" //Strategy 
+
 #include <iostream>
 #include <map>
 #include <cstring>
@@ -12,9 +14,11 @@ class CrewDragon {
 
     private:
     map<string, string> part;
+    SendAndReturn* SandR;
 
     public: 
     CrewDragon();
+    CrewDragon(SendAndReturn*);
     CrewDragon(string name);
 	
 		CrewDragon(const CrewDragon& b);
@@ -23,7 +27,7 @@ class CrewDragon {
 
 		void show();
 
-        void send();
+    string send();
 
         void returnHome();
         

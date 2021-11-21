@@ -1,11 +1,6 @@
-main: *.o
-	g++ -o main *.o
-
-*.o: *.h *.cpp
-	g++ -g -c *.cpp
-
-run: 
+run: main
 	./main
-
 clean:
-	rm *.o main
+	rm -rf *.out *.o
+main: clean
+	g++ *.cpp -o main

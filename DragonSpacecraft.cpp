@@ -2,6 +2,12 @@
 
 
 DragonSpacecraft::DragonSpacecraft(){}
+DragonSpacecraft::DragonSpacecraft(SendAndReturn*  sNr){
+    this->SandR=sNr;
+}
+
+
+
 DragonSpacecraft::DragonSpacecraft(string name = "Dragon Spacecraft"){
 			part["name"] = name;
 		}
@@ -18,8 +24,10 @@ DragonSpacecraft::DragonSpacecraft(string name = "Dragon Spacecraft"){
 			cout<<"  NAME : "<< part["name"] << endl;
         }
 
-        void DragonSpacecraft::send(){
-            cout<< "Sending Cargo to the international Space Station"<<endl;
+        string DragonSpacecraft::send(){
+
+			return SandR->send(); //strategy
+          
         }
 
         

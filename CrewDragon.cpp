@@ -2,6 +2,9 @@
 
 
 CrewDragon::CrewDragon(){}
+CrewDragon::CrewDragon(SendAndReturn*  sNr){
+    this->SandR=sNr;
+}
 
 CrewDragon::CrewDragon(string name = "Crew Dragon"){
 			part["name"] = name;
@@ -19,8 +22,8 @@ CrewDragon::CrewDragon(string name = "Crew Dragon"){
 			cout<<"  NAME : "<< part["name"] << endl;
         }
 
-        void CrewDragon::send(){
-            cout<< "Sending Humans and Cargo to the international Space Station"<<endl;
+        string CrewDragon::send(){
+              return SandR->send();  //strategy
         }
 
         void CrewDragon::returnHome(){
