@@ -10,7 +10,7 @@ void RadioColleague::receiveMessage(string message){
 void RadioColleague::sendMessage(){
     string toId;
     string msg;
-    cout<<"Satellite "<<myId<<" which Sattelite would you like to send a laser message to? ";
+    cout<<"Satellite "<<myId<<" which Sattelite would you like to send a Radio message to? ";
     getline(cin,toId,'\n');
 
     cout<<"Satellite "<<myId<<" what is your message? ";
@@ -21,7 +21,7 @@ void RadioColleague::sendMessage(){
     radioMed->talkTo(atoi(toId.c_str()),convert.str()+": "+msg);
 }
 
-void RadioColleague::reg(RadioMediator* radio){
+void RadioColleague::reg(Mediator* radio){
     radioMed=radio;
     myId=radio->registerMe(this);
 	

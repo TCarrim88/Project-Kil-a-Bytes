@@ -6,7 +6,9 @@
 class AbstractCCFactory{
 
     public:
-    virtual CraftComponent* createEngine();
+    AbstractCCFactory(){};
+    ~AbstractCCFactory(){};
+    virtual CraftComponent* createEngine() = 0;
     
 };
 #endif

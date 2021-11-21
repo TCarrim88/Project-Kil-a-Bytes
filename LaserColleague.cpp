@@ -26,10 +26,9 @@ void LaserColleague::sendMessage(){
     laserMed->talkTo(atoi(toId.c_str()),convert.str()+": "+msg);
 }
 
-void LaserColleague::reg(LaserMediator* laser){
-    cout<<"Works"<<endl;
+void LaserColleague::reg(Mediator* laser){
     laserMed=laser;
-    //myId=laser->registerMe(this);
+    myId=laser->registerMe(this);
     
 }
 

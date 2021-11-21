@@ -44,11 +44,22 @@
 
 //Kajal includes:
 //#include "ConcreteFalconObserver9.h"
-#include "StarlinkConcreteLaunchObs.cpp"
+#include "StarlinkConcreteLaunchObs.h"
 //#include "Falcon.cpp"
 //#include "Falcon9.cpp"
 //#include "CraftComponent.h"
 //#include "ConcreteFalconObserver9.cpp"
+
+//Randoms
+#include "FalconFactory.h"
+#include "Falcon9Factory.h"
+#include "FalconHeavyFactory.h"
+
+//AbstractFactory
+#include "AbstractCCFactory.h"
+#include "MerlinEngineFactory.h"
+#include "VacuumMEFactory.h"
+#include "Falcon9CoreFact.h"
 
 using namespace std;
 
@@ -106,26 +117,63 @@ int main(){
     refurb->launchExecute();
     cout << endl;
 
-    cout << "=====================DECORATOR TEST=====================" << endl;
+
+
+    
+
+
+    cout << "=====================DECORATOR AND ABSTRACT FACTORY=====================" << endl;
     cout << endl;
+
+    cout << "Adding Engines and Cores to Rockets" << endl;
+    cout << endl;
+    AbstractCCFactory* MerlEng;
+    
+    AbstractCCFactory* VacEng;
+
+        AbstractCCFactory* Fal9Core;
+
+
+    
+    MerlEng = new MerlinEngineFactory();
+
+    VacEng = new VacuumMEFactory();
+
+    Fal9Core = new Falcon9CoreFactory();
+    
 
     Falcon9* Falc9 = new Falcon9();
     FalconHeavy* FalcHeavy = new FalconHeavy();
 
-    RocketParts* engine = new AddEngines();
+    //RocketParts* engine = new AddEngines();
     RocketParts* core = new AddCores();
-
-    Falc9->add(engine);
-    Falc9->add(core);
-
-    FalcHeavy->add(engine);
-    FalcHeavy->add(core);
+    //Adding Merlin Engines
+    for (int i = 0; i<9; i++ ){
+          Falc9->add(MerlEng->createEngine());
+    }
 
 
-    cout << "Adding Engines and Cores to Rockets" << endl;
-    cout << endl;
-    Falc9->print();
-    FalcHeavy->print();
+    //Add Vaccume Merlin Engine
+    Falc9->add(VacEng->createEngine());
+    //Adding COre to falcon 9
+    Falc9->add(Fal9Core->createEngine());
+
+    //Adding Merlin Engines To FalconHeavy
+    for (int i = 0; i<27; i++ ){
+          FalcHeavy->add(MerlEng->createEngine());
+    }
+
+    //Adding VAccume mERLIN Engine
+    FalcHeavy->add(VacEng->createEngine());
+
+
+    //Adding Falcon9COres To FalconHeavy
+    for (int i = 0; i<3; i++ ){
+          FalcHeavy->add(Fal9Core->createEngine());
+    }
+
+
+    
 
 
     cout << "=====================BUILDER AND STRATEGY TEST=====================" << endl;
@@ -174,7 +222,7 @@ int main(){
     delete machine0;
     delete machine1;
 
-    cout << "=====================PROTOTYPE AND OBSERVER STRATEGY TEST=====================" << endl;
+    cout << "=====================PROTOTYPE AND OBSERVER TEMPLATE TEST=====================" << endl;
     cout << endl;
 
     //////////////////////////Starlink Observer//////////////////////////////
@@ -202,7 +250,64 @@ int main(){
 
 
 
-        cout << "=====================MEDIATOR=====================" << endl;
+    cout << "=====================MEDIATOR=====================" << endl;
+
+
+    Mediator* satelliteWeb=new LaserMediator("Comms");
+	
+	LaserColleague* satellites[2];
+	
+	satellites[0] = new LaserColleague();
+	satellites[1] = new LaserColleague();
+	satellites[2] = new LaserColleague();
+	
+	satellites[0]->reg(satelliteWeb);
+	satellites[1]->reg(satelliteWeb);
+	satellites[2]->reg(satelliteWeb);
+
+	satellites[0]->sendMessage();
+	satellites[0]->sendMessage();
+	satellites[1]->sendMessage();
+
+	satellites[1]->leave();
+
+	for (int i = 0; i < 2; i++)
+	{    
+		delete satellites[i];
+	}
+
+	delete satelliteWeb;
+	
+	Mediator* radioWeb = new RadioMediator("Radio Comms");
+	
+	RadioColleague* radio[2];
+	
+	RadioColleague* RadioBase = new RadioColleague();
+	RadioBase->reg(radioWeb);
+	radio[0]=new RadioColleague();
+	radio[1]=new RadioColleague();
+	radio[2]=new RadioColleague();
+	
+	radio[0]->reg(radioWeb);
+	radio[1]->reg(radioWeb);
+	radio[2]->reg(radioWeb);
+	
+	radio[0]->sendMessage();
+	radio[0]->sendMessage();
+	radio[1]->sendMessage();
+
+	radio[1]->leave();
+
+	for (int i = 0; i < 2; i++)
+	{    
+		delete radio[i];
+	}
+
+	delete radioWeb;
+
+
+
+    
 
     return 0;
 }

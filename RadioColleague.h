@@ -6,13 +6,13 @@
 class RadioColleague:public Colleague
 {
 private:
-    RadioMediator* radioMed;
+    Mediator* radioMed;
 public:
     RadioColleague();
     ~RadioColleague();
     virtual void receiveMessage(string);
     virtual void sendMessage();
-    virtual void reg(RadioMediator*);
+    virtual void reg(Mediator*);
     virtual void leave();
 };
 

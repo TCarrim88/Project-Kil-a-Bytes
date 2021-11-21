@@ -128,6 +128,7 @@ void Falcon9::oceanLand(){
 
 //Decorator
 void Falcon9::add(CraftComponent* c){
+    cout<<"Falcon9 Part Added"<<endl;
     components.push_back(c);
 }
 

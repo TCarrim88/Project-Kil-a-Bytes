@@ -5,7 +5,6 @@
 using namespace std;
 
 void CraftComponent::Orbit(){
-
 }
 
 CraftComponent::CraftComponent(){

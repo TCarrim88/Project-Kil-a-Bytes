@@ -4,6 +4,8 @@
 
 class FalconHeavyFactory: public FalconFactory{
     public:
+    FalconHeavyFactory(){};
+    ~FalconHeavyFactory(){};
     Falcon* createFalcon();
 };
 #endif

@@ -1,4 +1,3 @@
-
 #include "Mediator.h"
 Mediator::Mediator(/* args */){
     nextId=0;
@@ -14,6 +13,7 @@ int Mediator::registerMe(Colleague* Me){
     cout<<"Satellite "<<satellite->id<<" has been registered!"<<endl;
     return satellite->id;
 }
+
 
 void Mediator::broadcast(string message){
     list<Starlink*>::iterator it;

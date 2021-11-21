@@ -6,3 +6,5 @@ using namespace std;
 
 MerlinEngine::MerlinEngine()
 {}
+
+void MerlinEngine::print(){}

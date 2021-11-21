@@ -7,13 +7,13 @@ class LaserColleague:public Colleague
 {
 private:
     int myId;
-    LaserMediator* laserMed;
+    Mediator* laserMed;
 public:
     LaserColleague();
     ~LaserColleague();
     virtual void receiveMessage(string);
     virtual void sendMessage();
-    virtual void reg(LaserMediator*);
+    virtual void reg(Mediator*);
     virtual void leave();
 };
 

@@ -130,6 +130,7 @@ void FalconHeavy::oceanLand(){
 
 //Decorator
 void FalconHeavy::add(CraftComponent* c){
+    cout<<"FalconHeavy Part Added"<<endl;
     components.push_back(c);
 }
 

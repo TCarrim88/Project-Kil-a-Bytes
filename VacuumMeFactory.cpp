@@ -4,5 +4,8 @@
 using namespace std;
 
 CraftComponent *VacuumMEFactory::createEngine(){
-    return new  VacuumMerlinEngine();
+    cout<<"Vaccum Merlin Engine Created"<<endl;
+    return new VacuumMerlinEngine();
 }
+
+ void VacuumMEFactory::print(){}

@@ -4,6 +4,8 @@
 //AbstrFact: AbstrFact
 class FalconFactory{
     public:
-    virtual Falcon* createFalcon();
+    FalconFactory(){};
+    ~FalconFactory(){};
+    virtual Falcon* createFalcon()= 0;
 };
 #endif

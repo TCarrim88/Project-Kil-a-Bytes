@@ -4,5 +4,8 @@
 using namespace std;
 
 CraftComponent *MerlinEngineFactory::createEngine(){
+    cout<<"MerlinEngine Created"<<endl;
     return new  MerlinEngine();
 }
+
+         void MerlinEngineFactory::print(){}

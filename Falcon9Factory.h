@@ -4,6 +4,9 @@
 
 class Falcon9Factory: public FalconFactory{
     public:
+    Falcon9Factory(){};
+    ~Falcon9Factory(){};
+
     Falcon* createFalcon();
 };
 #endif

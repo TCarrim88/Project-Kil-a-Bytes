@@ -1,6 +1,7 @@
 #ifndef __Engine_h__
 #define __Engine_h__
 #include "CraftComponent.h"
+#include "RocketParts.h"
 //Template: ConcreteClasses
 //AbstractFact: ConcreteProd
 class Falcon9Core:public CraftComponent{
@@ -16,7 +17,8 @@ class Falcon9Core:public CraftComponent{
 
     // bool getSecondStage();
     // void setSecondStage(bool stage);
-    CraftComponent* createEngine();
+    Falcon9Core* createEngine();
+    void print();
     Falcon9Core();
     ~Falcon9Core(){};
 };
@@ -33,7 +35,8 @@ class MerlinEngine:public CraftComponent{
 
     // bool getSecondStage();
     // void setSecondStage(bool stage);
-    CraftComponent createEngine();
+    MerlinEngine* createEngine();
+    void print();
     MerlinEngine();
     ~MerlinEngine(){};
 };
@@ -51,7 +54,8 @@ class VacuumMerlinEngine:public CraftComponent{
 
     // bool getSecondStage();
     // void setSecondStage(bool stage);
-    CraftComponent createEngine();
+    VacuumMerlinEngine* createEngine();
+    void print();
     VacuumMerlinEngine();
     ~VacuumMerlinEngine(){};
 };
