@@ -9,4 +9,4 @@ class AbstractCCFactory{
     virtual CraftComponent* createEngine();
     
 };
-#endif;
+#endif
