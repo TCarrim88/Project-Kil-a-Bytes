@@ -7,4 +7,6 @@ using namespace std;
 VacuumMerlinEngine::VacuumMerlinEngine()
 {}
 
-void VacuumMerlinEngine::print(){}
+void VacuumMerlinEngine::print(){
+    cout<<"In Desired Orbit"<<endl;
+}

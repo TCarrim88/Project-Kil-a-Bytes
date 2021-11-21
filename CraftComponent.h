@@ -5,7 +5,7 @@
 //Decorator: Component
 class CraftComponent{   
     public:
-        virtual void Orbit();
+        void Orbit(CraftComponent*);
         CraftComponent();
         virtual ~CraftComponent();
 

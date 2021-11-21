@@ -4,7 +4,8 @@
 #include <vector>
 using namespace std;
 
-void CraftComponent::Orbit(){
+void CraftComponent::Orbit(CraftComponent* c){
+ c->print();
 }
 
 CraftComponent::CraftComponent(){

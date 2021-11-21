@@ -7,4 +7,6 @@ using namespace std;
 MerlinEngine::MerlinEngine()
 {}
 
-void MerlinEngine::print(){}
+void MerlinEngine::print(){
+    cout<<"Almost In Orbit"<<endl;
+}

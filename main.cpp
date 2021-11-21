@@ -54,6 +54,7 @@
 #include "FalconFactory.h"
 #include "Falcon9Factory.h"
 #include "FalconHeavyFactory.h"
+#include "Engine.h"
 
 //AbstractFactory
 #include "AbstractCCFactory.h"
@@ -180,19 +181,19 @@ int main(){
     cout << endl;
 
     // Variable to store Products */
-    CrewDragon CrewD;
-    DragonSpacecraft DSpacecraft;
+    CrewDragon CrewD[2];
+    DragonSpacecraft DSpacecraft[2];
 
   //DragonSpacecraft  context;
 	SendAndReturn*  sendANDreturn;
 	sendANDreturn= new SendCargo();
-	DSpacecraft = DragonSpacecraft(sendANDreturn);
+	DSpacecraft[2] = DragonSpacecraft(sendANDreturn);
 	cout<<endl;
 
 //CrewDragon Context
   SendAndReturn*  sendANDreturn1;
 	sendANDreturn1= new SendAndReturnHumansAndCargo();
-	CrewD = CrewDragon(sendANDreturn1);
+	CrewD[2] = CrewDragon(sendANDreturn1);
 	cout<<endl;
 
 	
@@ -204,18 +205,18 @@ int main(){
     // Director: Shop uses the same builders to construct better variants of these toys
     CrewDragonDirector* cdd = new CrewDragonDirector(machine0);
     cdd->construct();
-    CrewD = ((CrewDragonCB*) machine0)->getCrewDragon();
+    CrewD[1] = ((CrewDragonCB*) machine0)->getCrewDragon();
     delete cdd;
 
     DragonSpacecraftDirector* dsd = new DragonSpacecraftDirector(machine1);
     dsd->construct();
-    DSpacecraft = ((DragonSpacecraftCB*) machine1)->getDragonSpacecraft();
+    DSpacecraft[1] = ((DragonSpacecraftCB*) machine1)->getDragonSpacecraft();
     
     delete dsd;
     
 	
-    cout<<DSpacecraft.send()<<endl; 
-    cout<<CrewD.send()<<endl; 
+    cout<<DSpacecraft[2].send()<<endl; 
+    cout<<CrewD[2].send()<<endl; 
     
 
     // clean up
@@ -224,6 +225,17 @@ int main(){
 
     cout << "=====================TEMPLATE TEST=====================" << endl;
     cout << endl;
+
+
+  CraftComponent *lol;
+  CraftComponent *tt = MerlEng->createEngine();
+  lol->Orbit(tt);
+
+  tt = VacEng->createEngine();
+  lol->Orbit(tt);
+
+  tt = Fal9Core->createEngine();
+  lol->Orbit(tt);
 
     
 
@@ -311,6 +323,9 @@ int main(){
 	}
 
 	delete radioWeb;
+
+
+  
 
 
 
