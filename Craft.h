@@ -16,6 +16,9 @@ class Craft
     bool takeOffState = false;
     bool stage1State = false;
 	bool stage2State = false;
+    bool StarlinkAttachState = false;
+    bool crewDragon = false;
+    bool dragonSpace = false;
 
 	public:
 	//Launch Sim:
@@ -37,7 +40,9 @@ class Craft
     bool getStage2State(){
        return stage2State;
    }
-
+   virtual bool getSAstate(){};
+    virtual bool getCrewDragon(){};
+    virtual bool getDragonSpace(){};
 };
 
 #endif

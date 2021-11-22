@@ -1,7 +1,9 @@
 #include "DragonSpacecraft.h"
 
 
-DragonSpacecraft::DragonSpacecraft(){}
+DragonSpacecraft::DragonSpacecraft(){
+	dragonSpace = true;
+}
 DragonSpacecraft::DragonSpacecraft(SendAndReturn*  sNr){
     this->SandR=sNr;
 }

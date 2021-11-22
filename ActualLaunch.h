@@ -15,7 +15,7 @@ class ActualLaunch:public LaunchPad{
         //LP->TestMode();
     }
     void initiate(){
-        LP->TestMode();
+        LP->ActualLaunch();
     }
 };
 #endif

@@ -5,11 +5,12 @@
 using namespace std;
 
 Falcon9::Falcon9(){
-engineState = false; //engines off by default
+    engineState = false; //engines off by default
    launchState = false;
    landState = false;
    refurbState = false;
    staticState = false;
+    starlinkAttachState = false;
 }
 // Observer functions
 bool Falcon9::getStage2() {
@@ -151,6 +152,7 @@ void Falcon9::addSatellite(StarlinkSatellites*s){
 	if(capacity < 60){
 		cout << "Starlink satellite attched to falcon9" << endl;
 	    starlinkList.push_back(s);
+        starlinkAttachState = true;
 		capacity++;
     }
 	else{

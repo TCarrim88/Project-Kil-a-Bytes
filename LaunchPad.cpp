@@ -8,7 +8,7 @@
 #include <iostream>
 using namespace std;
 
-LaunchPad::LaunchPad(Craft* c){
+LaunchPad::LaunchPad(Craft* c){ //Falcon9, FH, CD, DS
     craft = c;
     sequence = "";
 }
@@ -40,8 +40,19 @@ void LaunchPad::seq(string sequence){
             interrupt();
         }
         else{
-            sequence = "Stage1";
-            seq(sequence);
+            if(craft->getCrewDragon()){
+                cout << "Sending Humans and Cargo to International Space Station." <<endl;
+                SpaceStation();
+            }
+            else if(craft->getDragonSpace()){
+                cout << "Sending Cargo to International Space Station." <<endl;
+                SpaceStation();
+            }
+            else{
+                sequence = "Stage1";
+                seq(sequence);
+            }
+            
         }
     }
     else if(sequence == "Stage1"){
@@ -62,20 +73,30 @@ void LaunchPad::seq(string sequence){
             interrupt();
         }
         else{
-            success = true;
+            if(craft->getSAstate()){
+                cout << "Deploy Satellites." <<endl;
+                SpreadOut();
+            }
+            else{
+                success = true;
+            }
+            
         }
     }
 }
 
 void LaunchPad::TestMode(){
     cout << "Select a button: " << endl;
-
+    
     cout << "On" << "\t";
     cout << "Off" << endl;
-
     cout << "TakeOff" << "\t";
-    cout << "Stage1" << "\t";
-    cout << "Stage2" << endl;
+    
+    if(!craft->getCrewDragon()|| !craft->getDragonSpace()){
+        cout << "Stage1" << "\t";
+        cout << "Stage2" << endl;
+    }
+   
 
     //string sequence= "";
     cin >> sequence;
@@ -102,11 +123,13 @@ void LaunchPad::tweak(){
 
     cout << "On" << "\t";
     cout << "Off" << endl;
-
     cout << "TakeOff" << "\t";
-    cout << "Stage1" << "\t";
-    cout << "Stage2" << endl;
-
+    
+    if(!craft->getCrewDragon()|| !craft->getDragonSpace()){
+        cout << "Stage1" << "\t";
+        cout << "Stage2" << endl;
+    }
+    
     cin >> sequence;
     if(sequence == "On"){
         command = new SimTurnOn(craft);
@@ -134,6 +157,9 @@ void LaunchPad::tweak(){
             sequence = "Stage1";
             cont();
         }
+        if(!craft->getTakeOffState()){
+            interrupt();
+        }
     }
     else if(sequence == "Stage1"){
         command = new Stage1(craft);
@@ -141,6 +167,9 @@ void LaunchPad::tweak(){
         if(craft->getStage1State()){
             sequence = "Stage2";
             cont();
+        }
+        if(!craft->getStage1State()){
+            interrupt();
         }
     }
     else if(sequence == "Stage2"){
@@ -150,6 +179,9 @@ void LaunchPad::tweak(){
             //sequence = "Stage2";
             success = true;
             cont();
+        }
+        if(!craft->getStage2State()){
+            interrupt();
         }
     }
 }
@@ -167,10 +199,12 @@ void LaunchPad::ActualLaunch(){
 
     cout << "On" << "\t";
     cout << "Off" << endl;
-
     cout << "TakeOff" << "\t";
-    cout << "Stage1" << "\t";
-    cout << "Stage2" << endl;
+    
+    if(!craft->getCrewDragon()|| !craft->getDragonSpace()){
+        cout << "Stage1" << "\t";
+        cout << "Stage2" << endl;
+    }
 
     cin >> sequence;
 
@@ -199,8 +233,18 @@ void LaunchPad::ActualLaunch(){
             cout << "Actual Launch Sequence Failed!"<<endl;
         }
         else{
-            sequence = "Stage1";
-            //seq(sequence);
+            if(craft->getCrewDragon()){
+                cout << "Sending Humans and Cargo to International Space Station." <<endl;
+                SpaceStation();
+            }
+            else if(craft->getDragonSpace()){
+                cout << "Sending Cargo to International Space Station." <<endl;
+                SpaceStation();
+            }
+            else{
+                sequence = "Stage1";
+                //seq(sequence);
+            }
         }
     }
     if(sequence == "Stage1"){
@@ -223,8 +267,23 @@ void LaunchPad::ActualLaunch(){
             cout << "Actual Launch Sequence Failed!"<<endl;
         }
         else{
-            success = true;
+            if(craft->getSAstate()){
+                cout << "Deploy Satellites." <<endl;
+                SpreadOut();
+            }
+            else{
+                success = true;
+            }
         }
     }
 
+}
+
+void LaunchPad::SpreadOut(){
+    cout << "Starlink Satellites slowly spread out."<< endl;
+    success = true;
+}
+
+void LaunchPad::SpaceStation(){
+    cout << "Dragon Craft has docked at the International Space Station." << endl;
 }

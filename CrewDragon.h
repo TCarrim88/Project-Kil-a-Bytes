@@ -16,6 +16,7 @@ class CrewDragon  : public Craft {
     private:
     map<string, string> part;
     SendAndReturn* SandR;
+    bool crewDragon;
 
     public: 
     CrewDragon();
@@ -30,7 +31,11 @@ class CrewDragon  : public Craft {
 
     string send();
 
-        void returnHome();
+    void returnHome();
+
+    bool getCrewDragon(){
+      return crewDragon;
+    }
         
 };
 

@@ -20,6 +20,7 @@ class Falcon9: public Falcon, public CraftComponent
     bool landState;     //land successful = true, land unsuccessful = false (needs to be true for refurbish to be successful)
     bool refurbState;   //refurbish successful = true, refurbish successful = false (needs to be true to proceed to actual launch) 
     bool staticState;
+    bool starlinkAttachState;
 
     // Observer
     bool stage2;
@@ -68,6 +69,9 @@ class Falcon9: public Falcon, public CraftComponent
 
     //Add Satellites
     virtual void addSatellite(StarlinkSatellites*);
+    bool getSAstate(){
+        return starlinkAttachState;
+    }
 
 
 

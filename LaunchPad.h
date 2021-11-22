@@ -27,7 +27,8 @@ class LaunchPad{
     void interrupt();
     void tweak();
     void cont();
-
+    void SpreadOut();
     void ActualLaunch();
+    void SpaceStation();
 };
 #endif

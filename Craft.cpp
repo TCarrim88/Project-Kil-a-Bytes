@@ -25,7 +25,7 @@ void Craft::takeOff(){
 
 void Craft::stage1(){
     if(takeOffState){ //if rocket has successfully taken off
-        cout << "In Low Earth Orbit." << endl;
+        cout << "Almost in Orbit." << endl;
         stage1State = true;
     }
     else{

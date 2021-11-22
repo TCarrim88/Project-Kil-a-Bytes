@@ -16,6 +16,7 @@ class DragonSpacecraft : public Craft {
     private:
     map<string, string> part;
     SendAndReturn* SandR;
+    bool dragonSpace;
 
     public: 
     DragonSpacecraft();
@@ -32,6 +33,9 @@ class DragonSpacecraft : public Craft {
 
     string send();  //strategy 
 
+    bool getDragonSpace(){
+      return dragonSpace;
+    }
     
         
 };

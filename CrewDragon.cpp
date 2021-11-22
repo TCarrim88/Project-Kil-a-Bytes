@@ -1,7 +1,9 @@
 #include "CrewDragon.h"
 
 
-CrewDragon::CrewDragon(){}
+CrewDragon::CrewDragon(){
+	crewDragon = true;
+}
 CrewDragon::CrewDragon(SendAndReturn*  sNr){
     this->SandR=sNr;
 }
