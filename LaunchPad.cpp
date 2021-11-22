@@ -27,7 +27,7 @@ void LaunchPad::seq(string sequence){
         command = new SimTurnOff(craft); //getTurnOnState : on = true, off = false
         command->Launch();
         if(!craft->getTurnOnState()){ //it is off 
-            cout << "Error" << endl;
+            cout << "Error. Try Again" << endl;
             TestMode();
             //interrupt();
         }
@@ -189,7 +189,7 @@ void LaunchPad::tweak(){
 void LaunchPad::cont(){
     cout << "Continuing" << endl;
 
-    while(!success){
+    if(!success){
         seq(sequence);
     }
 }
@@ -234,11 +234,11 @@ void LaunchPad::ActualLaunch(){
         }
         else{
             if(craft->getCrewDragon()){
-                cout << "Sending Humans and Cargo to International Space Station." <<endl;
+                cout << "Take Off to International Space Station." <<endl;
                 SpaceStation();
             }
             else if(craft->getDragonSpace()){
-                cout << "Sending Cargo to International Space Station." <<endl;
+                cout << "Take Off to International Space Station." <<endl;
                 SpaceStation();
             }
             else{

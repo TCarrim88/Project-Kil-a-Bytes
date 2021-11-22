@@ -16,7 +16,7 @@ class CrewDragon  : public Craft {
     private:
     map<string, string> part;
     SendAndReturn* SandR;
-    bool crewDragon;
+    bool crewDragon = false;
 
     public: 
     CrewDragon();

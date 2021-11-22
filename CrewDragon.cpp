@@ -6,6 +6,7 @@ CrewDragon::CrewDragon(){
 }
 CrewDragon::CrewDragon(SendAndReturn*  sNr){
     this->SandR=sNr;
+	crewDragon = true;
 }
 
 CrewDragon::CrewDragon(string name = "Crew Dragon"){

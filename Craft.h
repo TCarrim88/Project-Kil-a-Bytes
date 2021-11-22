@@ -40,9 +40,9 @@ class Craft
     bool getStage2State(){
        return stage2State;
    }
-   virtual bool getSAstate(){};
-    virtual bool getCrewDragon(){};
-    virtual bool getDragonSpace(){};
+   virtual bool getSAstate(){return false;};
+    virtual bool getCrewDragon(){return false;};
+    virtual bool getDragonSpace(){return false;};
 };
 
 #endif

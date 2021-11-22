@@ -11,6 +11,5 @@ CrewDragonDirector::CrewDragonDirector(DragonBuilder* m) {
             machine = NULL;
 		}
 		void CrewDragonDirector::construct() {
-            machine->setName(cdname);
-            
+            machine->setName(cdname);           
 		}

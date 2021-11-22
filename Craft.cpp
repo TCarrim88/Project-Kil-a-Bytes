@@ -3,7 +3,7 @@
 using namespace std;
 
 void Craft::turnOn(){
-	cout << "rocket has been turned on"<<endl;
+	cout << "Craft has been turned on"<<endl;
 	this->turnOnState = true;
 }
 
