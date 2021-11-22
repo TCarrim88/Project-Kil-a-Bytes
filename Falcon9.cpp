@@ -145,3 +145,16 @@ void Falcon9::print(){
     (*it)->print();
 }
 
+//add Satelites
+void Falcon9::addSatellite(StarlinkSatellites*s){
+	if(capacity < 60){
+		cout << "Starlink satellite attched to falcon9" << endl;
+	    starlinkList.push_back(s);
+		capacity++;
+    }
+	else{
+		cout << "maximum number of satellites have been attached" << endl;
+	}
+	
+
+}

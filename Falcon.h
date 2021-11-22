@@ -4,6 +4,7 @@
 
 #include "Craft.h"
 #include "FalconObserver.h"
+#include "StarlinkSatellites.h"
 #include <vector>
 
 using namespace std;
@@ -32,8 +33,12 @@ class Falcon: public Craft
     void detach(FalconObserver* o);
     void notify();
 
+   
+
+
 private:
     vector<FalconObserver*> observerList;
+    
 };
 
 #endif

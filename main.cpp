@@ -261,7 +261,9 @@ int main(){
     falconObserver->update();
     falc9->attach(falconObserver);
 
-    
+    for (int i = 0; i<10; i++ ){
+          falc9->addSatellite(s->cluster());
+    }
 
 
 

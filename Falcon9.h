@@ -4,6 +4,7 @@
 #include "FalconTest.h"
 #include "Falcon.h"
 #include "CraftComponent.h"
+#include "StarlinkSatellites.h"
 #include <vector>
 using std::vector;
 
@@ -25,6 +26,10 @@ class Falcon9: public Falcon, public CraftComponent
 
     //Decorator
     vector<CraftComponent*> components;
+
+    //add satellites
+    vector<StarlinkSatellites*> starlinkList;
+    int capacity = 0;
 
     public:
     Falcon9();
@@ -59,6 +64,10 @@ class Falcon9: public Falcon, public CraftComponent
     //Decorator
     void add(CraftComponent*);
     void print();
+
+
+    //Add Satellites
+    virtual void addSatellite(StarlinkSatellites*);
 
 };
 
