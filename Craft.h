@@ -11,8 +11,33 @@ class Craft;
 
 class Craft
 {
-	public: ActualLaunch* _unnamed_ActualLaunch_;
-	public: TestMode* _unnamed_TestMode_;
+	private:
+	bool turnOnState = false;
+    bool takeOffState = false;
+    bool stage1State = false;
+	bool stage2State = false;
+
+	public:
+	//Launch Sim:
+   void turnOn();
+   void turnOff();
+   void takeOff();
+   void stage1();
+   void stage2();
+
+   bool getTurnOnState(){
+       return turnOnState;
+   }
+   bool getTakeOffState(){
+       return takeOffState;
+   }
+    bool getStage1State(){
+       return stage1State;
+    }
+    bool getStage2State(){
+       return stage2State;
+   }
+
 };
 
 #endif
