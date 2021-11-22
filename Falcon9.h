@@ -69,6 +69,8 @@ class Falcon9: public Falcon, public CraftComponent
     //Add Satellites
     virtual void addSatellite(StarlinkSatellites*);
 
+
+
 };
 
 #endif

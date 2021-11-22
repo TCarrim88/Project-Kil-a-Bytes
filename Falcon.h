@@ -17,8 +17,15 @@ class Falcon: public Craft
     private:
     //bool refurbState (needed for actual launch)
     
+    
     public:
     Falcon();
+    // bool getTurnOn(){
+    //     return turnOnState;
+    // }
+    // void setTurnOn(bool state){
+    //     turnOnState = state;
+    // }
     //Command functions:
     //virtual void execute();
     virtual void staticFire() = 0;
