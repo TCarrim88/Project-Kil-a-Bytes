@@ -73,21 +73,8 @@ void FalconHeavy::staticFire(){
     //switch engines on and then off
     this->oceanOn();
     this->oceanOff();
+    setStaticState(true); //static fire test has been executed
     cout << "Static Test was successful!" << endl;
-}
-
-void FalconHeavy::oceanLaunch(){
-
-    if(getEngineState()){ //engine is on, launch can proceed
-
-        cout << "Rocket has been launched for droneShip-landing in the ocean." << endl;
-        setLaunchState(true);
-    }
-    else{   //engine is off, launch unsuccessful
-
-        cout << "Rocket Launch was Unsuccessful as the Engines are not turned on." << endl;
-        setLaunchState(false);
-    }
 }
 
 void FalconHeavy::oceanOn(){
@@ -100,16 +87,25 @@ void FalconHeavy::oceanOff(){
     setEngineState(false); //switch engines off
 }
 
-void FalconHeavy::refurbish(){
-    if(getLandState()){  //rocket landing was successful, can refurbish rocket
+void FalconHeavy::oceanLaunch(){
 
-        cout << "Rocket has been refurbished! Proceed to Actual Launch." << endl;
-        setRefurbState(true);
+    if(getStaticState()){   // static fire test must be done before launch can proceed
+        if(getEngineState()){ //engine is on, launch can proceed
+
+            cout << "Rocket has been launched for droneShip-landing in the ocean." << endl;
+            setLaunchState(true);
+        }
+        else{   //engine is off, launch unsuccessful
+
+            cout << "Rocket Launch was Unsuccessful as the Engines are not turned on." << endl;
+            setLaunchState(false);
+        }
     }
-    else{  //Rocket landing was unsuccessful
-        cout << "Rocket Landing was unsuccessful. Cannot refurbish rocket. Actual Launch cannot take place." << endl;
-        setRefurbState(false);
+    else{ // static fire test was not done, launch can't proceed
+        cout << "Rocket Launch was Unsuccessful as the Static Fire Test was not executed." << endl;
+        setLaunchState(false);
     }
+    
 }
 
 void FalconHeavy::oceanLand(){
@@ -123,6 +119,18 @@ void FalconHeavy::oceanLand(){
         cout << "Rocket cannot Land as it has not been Launched." << endl;
         setLandState(false);
    }
+}
+
+void FalconHeavy::refurbish(){
+    if(getLandState()){  //rocket landing was successful, can refurbish rocket
+
+        cout << "Rocket has been refurbished! Proceed to Actual Launch." << endl;
+        setRefurbState(true);
+    }
+    else{  //Rocket landing was unsuccessful
+        cout << "Rocket Landing was unsuccessful. Cannot refurbish rocket. Actual Launch cannot take place." << endl;
+        setRefurbState(false);
+    }
 }
 
 //=============== END OF IMPLEMENTATION OF COMMAND FUNCTIONS

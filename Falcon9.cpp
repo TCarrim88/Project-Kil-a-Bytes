@@ -85,17 +85,24 @@ void Falcon9::oceanOff(){
 }
 
 void Falcon9::oceanLaunch(){
+    
+    if(getStaticState()){   // static fire test must be done before launch can proceed
+        if(getEngineState()){ //engine is on, launch can proceed
 
-    if(getEngineState()){ //engine is on, launch can proceed
+            cout << "Rocket has been launched for droneShip-landing in the ocean." << endl;
+            setLaunchState(true);
+        }
+        else{   //engine is off, launch unsuccessful
 
-        cout << "Rocket has been launched for droneShip-landing in the ocean." << endl;
-        setLaunchState(true);
+            cout << "Rocket Launch was Unsuccessful as the Engines are not turned on." << endl;
+            setLaunchState(false);
+        }
     }
-    else{   //engine is off, launch unsuccessful
-
-        cout << "Rocket Launch was Unsuccessful as the Engines are not turned on." << endl;
+    else{ // static fire test was not done, launch can't proceed
+        cout << "Rocket Launch was Unsuccessful as the Static Fire Test was not executed." << endl;
         setLaunchState(false);
     }
+    
 }
 
 void Falcon9::oceanLand(){
