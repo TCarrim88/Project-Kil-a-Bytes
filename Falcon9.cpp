@@ -74,6 +74,16 @@ void Falcon9::staticFire(){
     cout << "Static Test was successful!" << endl;
 }
 
+void Falcon9::oceanOn(){
+    cout << "Engines Fired up." << endl;
+    setEngineState(true); //switch engines on
+}
+
+void Falcon9::oceanOff(){
+    cout << "Engines Turned off" << endl;
+    setEngineState(false); //switch engines off
+}
+
 void Falcon9::oceanLaunch(){
 
     if(getEngineState()){ //engine is on, launch can proceed
@@ -88,14 +98,17 @@ void Falcon9::oceanLaunch(){
     }
 }
 
-void Falcon9::oceanOn(){
-    cout << "Engines Fired up." << endl;
-    setEngineState(true); //switch engines on
-}
+void Falcon9::oceanLand(){
+    if(getLaunchState()){ //Rocket was successfully launched, can procceed with landing process
 
-void Falcon9::oceanOff(){
-    cout << "Engines Turned off" << endl;
-    setEngineState(false); //switch engines off
+        cout << "Rocket has successfully landed on drone ship in the ocean" << endl;
+        setLandState(true);
+        setEngineState(false); //switch off engines after landing
+    }
+   else{ //launch was unsuccessful
+        cout << "Rocket cannot Land as it has not been Launched." << endl;
+        setLandState(false);
+   }
 }
 
 void Falcon9::refurbish(){
@@ -108,19 +121,6 @@ void Falcon9::refurbish(){
         cout << "Rocket Landing was unsuccessful. Cannot refurbish rocket. Actual Launch cannot take place." << endl;
         setRefurbState(false);
     }
-}
-
-void Falcon9::oceanLand(){
-    if(getLaunchState()){ //Rocket was successfully launched, can procceed with landing process
-
-        cout << "Rocket has successfully landed on drone ship in the ocean" << endl;
-        setLandState(true);
-        setEngineState(false); //switch off engines after landing
-    }
-   else{ //launch was unsuccessful
-        cout << "Rocket cannot Land as it has not been Launched." << endl;
-        setLandState(false);
-   }
 }
 
 //=============== END OF IMPLEMENTATION OF COMMAND FUNCTIONS
