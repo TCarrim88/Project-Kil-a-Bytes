@@ -72,6 +72,7 @@ void Falcon9::staticFire(){
     this->oceanOn();
     this->oceanOff();
     cout << "Static Test was successful!" << endl;
+	setStaticState(true);
 }
 
 void Falcon9::oceanOn(){
