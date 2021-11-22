@@ -24,11 +24,11 @@
 #include "AddEngines.h"
 #include "CraftComponent.h"
 
-//observr heaaders
+//observr headers
 #include "FalconObserver.h"
-#include "ConcreteFalconObserver9.h"
 #include "ConcreteFalconObserverHeavy.h"
 #include <iostream>
+#include <time.h>
 
 //Tariq + mumtaz functions
 #include "CrewDragon.h"
@@ -43,12 +43,8 @@
 #include "SendAndReturnHumansAndCargo.h" //ConcreteStrategy2
 
 //Kajal includes:
-//#include "ConcreteFalconObserver9.h"
+#include "ConcreteFalconObserver9.h"
 #include "StarlinkConcreteLaunchObs.h"
-//#include "Falcon.cpp"
-//#include "Falcon9.cpp"
-//#include "CraftComponent.h"
-//#include "ConcreteFalconObserver9.cpp"
 
 //Randoms
 #include "FalconFactory.h"
@@ -62,14 +58,28 @@
 #include "VacuumMEFactory.h"
 #include "Falcon9CoreFact.h"
 
+//TestSim:
+#include "SimTakeOff.h"
+#include "SimTurnOn.h"
+#include "SimTurnOff.h"
+#include "Stage1.h"
+#include "Stage2.h"
+#include "TestMode.h"
+#include "ActualLaunch.h"
+
 using namespace std;
 
-int main(){
+ int main(){
 
-    cout << "=====================COMMAND TEST=====================" << endl;
+    cout << "=============FALCON ROCKET TEST=============" << endl;
+    cout << endl;
+    
+    cout << "=============COMMAND DP TEST=============" << endl;
     cout << endl;
 
-    cout << "Test Static fire using Button: " << endl;
+    cout << "Test Command Design Pattern Functionality" << endl;
+    cout << endl;
+    cout << "Test Static fire using Button (invoker): " << endl;
     cout << endl;
 
     Falcon* FH = new FalconHeavy();
@@ -118,10 +128,9 @@ int main(){
     refurb->launchExecute();
     cout << endl;
 
+   // CommandInteractive();
 
-
-    
-
+   
 
     cout << "=====================DECORATOR AND ABSTRACT FACTORY=====================" << endl;
     cout << endl;
@@ -132,9 +141,7 @@ int main(){
     
     AbstractCCFactory* VacEng;
 
-        AbstractCCFactory* Fal9Core;
-
-
+    AbstractCCFactory* Fal9Core;
     
     MerlEng = new MerlinEngineFactory();
 
@@ -142,7 +149,6 @@ int main(){
 
     Fal9Core = new Falcon9CoreFactory();
     
-
     Falcon9* Falc9 = new Falcon9();
     FalconHeavy* FalcHeavy = new FalconHeavy();
 
@@ -173,25 +179,38 @@ int main(){
           FalcHeavy->add(Fal9Core->createEngine());
     }
 
+    cout << "=====================TEMPLATE TEST=====================" << endl;
+    cout << endl;
 
-    
 
+    CraftComponent *lol;
+    CraftComponent *tt = MerlEng->createEngine();
+    lol->Orbit(tt);
+
+    tt = VacEng->createEngine();
+    lol->Orbit(tt);
+
+    tt = Fal9Core->createEngine();
+    lol->Orbit(tt);
+
+    cout << "=============DRAGON SPACECRAFT TEST=============" << endl;
+    cout << endl;
 
     cout << "=====================BUILDER AND STRATEGY TEST=====================" << endl;
-    cout << endl;
+    //cout << endl;
 
     // Variable to store Products */
     CrewDragon CrewD;
     DragonSpacecraft DSpacecraft;
 
-  //DragonSpacecraft  context;
+    //DragonSpacecraft  context;
 	SendAndReturn*  sendANDreturn;
 	sendANDreturn= new SendCargo();
 	DSpacecraft = DragonSpacecraft(sendANDreturn);
 	cout<<endl;
 
-//CrewDragon Context
-  SendAndReturn*  sendANDreturn1;
+    //CrewDragon Context
+    SendAndReturn*  sendANDreturn1;
 	sendANDreturn1= new SendAndReturnHumansAndCargo();
 	CrewD = CrewDragon(sendANDreturn1);
 	cout<<endl;
@@ -223,21 +242,8 @@ int main(){
     delete machine0;
     delete machine1;
 
-    cout << "=====================TEMPLATE TEST=====================" << endl;
+    cout << "=====================STARLINK SATELLITE TEST=====================" << endl;
     cout << endl;
-
-
-  CraftComponent *lol;
-  CraftComponent *tt = MerlEng->createEngine();
-  lol->Orbit(tt);
-
-  tt = VacEng->createEngine();
-  lol->Orbit(tt);
-
-  tt = Fal9Core->createEngine();
-  lol->Orbit(tt);
-
-    
 
     cout << "=====================PROTOTYPE AND OBSERVER TEST=====================" << endl;
     cout << endl;
@@ -245,13 +251,11 @@ int main(){
     //////////////////////////Starlink Observer//////////////////////////////
     Starlink *s = new Starlink();
     
-    //s->cluster(); // testing protoype
     StarlinkConcreteLaunchObs * observer =new StarlinkConcreteLaunchObs(s);
     observer->update();
     observer->print();
     s->attach(observer);
     s->detach(observer);
-    s->cluster();
     s->notify();
     s->setDeployed(true);
 
@@ -265,11 +269,9 @@ int main(){
           falc9->addSatellite(s->cluster());
     }
 
-
-
-
-
-
+    
+    cout << "=====================STARLINK SATELLITE COMMUNICATION TEST=====================" << endl;
+    cout << endl;
 
     cout << "=====================MEDIATOR=====================" << endl;
 
@@ -327,11 +329,91 @@ int main(){
 	delete radioWeb;
 
 
-  
-
-
 
     
 
-    return 0;
-}
+
+    cout << "=====================LAUNCH SIMULATOR TEST=====================" << endl;
+    cout << endl;
+
+
+    Falcon9* f9 = new Falcon9();
+    Craft* FH = new FalconHeavy();
+    Craft* CD = new CrewDragon();
+    Craft* DS = new DragonSpacecraft();
+    
+    
+    StarlinkSatellites* Sat = new Starlink();
+    f9->addSatellite(Sat);
+
+    Craft* F9 = f9;
+
+    cout << "Which Craft would you like to test?" << endl;
+    cout << "1. F9"<< "\t" << "2. FH" << endl;
+    cout << "3. CD"<< "\t" << "4. DS" << endl;
+
+    int craft;
+    cin >> craft;
+    cout << endl;
+
+    cout << "Which Simulation would you like to run for F9?" << endl;
+    cout << "1. Actual Launch" <<"\t" << "2. Test Mode" << endl;
+    int launch;
+    cin >> launch;
+    cout << endl;
+
+    if(launch == 1){
+        if(craft == 1){
+            cout << "Initiate Actual Launch for F9" << endl;
+            ActualLaunch* AL = new ActualLaunch(F9);
+            AL->initiate();
+            cout << endl;
+        }
+        else if(craft == 2){
+            cout << "Initiate Actual Launch for FH" << endl;
+            ActualLaunch* AL = new ActualLaunch(FH);
+            AL->initiate();
+            cout << endl;
+        }
+        else if(craft == 3){
+            cout << "Initiate Actual Launch for CD" << endl;
+            ActualLaunch* AL = new ActualLaunch(CD);
+            AL->initiate();
+            cout << endl;
+        }
+        else if(craft == 4){
+            cout << "Initiate Actual Launch for DS" << endl;
+            ActualLaunch* AL = new ActualLaunch(DS);
+            AL->initiate();
+            cout << endl;
+        }
+    }
+    else{
+        if(craft == 1){
+            cout << "Initiate Test Mode for F9" << endl;
+            TestMode* TM = new TestMode(F9);
+            TM->initiate();
+            cout << endl;
+        }
+        else if(craft == 2){
+            cout << "Initiate Test Mode for FH" << endl;
+            TestMode* TM = new TestMode(FH);
+            TM->initiate();
+            cout << endl;
+        }
+        else if(craft == 3){
+            cout << "Initiate Test Mode for CD" << endl;
+            TestMode* TM = new TestMode(CD);
+            TM->initiate();
+            cout << endl;
+        }
+        else if(craft == 4){
+            cout << "Initiate Test Mode for DS" << endl;
+            TestMode* TM = new TestMode(DS);
+            TM->initiate();
+            cout << endl;
+        }
+    }
+    
+     return 0;
+ } 
