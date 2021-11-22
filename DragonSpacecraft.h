@@ -1,7 +1,7 @@
 #ifndef DRAGON_SPACECRAFT_H
 #define DRAGON_SPACECRAFT_H
 
-
+#include "Craft.h"
 #include "SendAndReturn.h"
 
 #include <iostream>
@@ -11,7 +11,7 @@
 using namespace std;
 
 
-class DragonSpacecraft {
+class DragonSpacecraft : public Craft {
 
     private:
     map<string, string> part;

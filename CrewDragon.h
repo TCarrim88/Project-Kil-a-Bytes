@@ -1,6 +1,7 @@
 #ifndef CREW_DRAGON_H
 #define CREW_DRAGON_H
 
+#include "Craft.h"
 #include "SendAndReturn.h" //Strategy 
 
 #include <iostream>
@@ -10,7 +11,7 @@
 using namespace std;
 
 
-class CrewDragon {
+class CrewDragon  : public Craft {
 
     private:
     map<string, string> part;
