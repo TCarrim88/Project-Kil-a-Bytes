@@ -338,7 +338,7 @@ using namespace std;
 
 
     Falcon9* f9 = new Falcon9();
-    Craft* FH = new FalconHeavy();
+    Craft* FHH = new FalconHeavy();
     Craft* CD = new CrewDragon();
     Craft* DS = new DragonSpacecraft();
     
@@ -349,7 +349,7 @@ using namespace std;
     Craft* F9 = f9;
 
     cout << "Which Craft would you like to test?" << endl;
-    cout << "1. F9"<< "\t" << "2. FH" << endl;
+    cout << "1. F9"<< "\t" << "2. FHH" << endl;
     cout << "3. CD"<< "\t" << "4. DS" << endl;
 
     int craft;
@@ -370,8 +370,8 @@ using namespace std;
             cout << endl;
         }
         else if(craft == 2){
-            cout << "Initiate Actual Launch for FH" << endl;
-            ActualLaunch* AL = new ActualLaunch(FH);
+            cout << "Initiate Actual Launch for FHH" << endl;
+            ActualLaunch* AL = new ActualLaunch(FHH);
             AL->initiate();
             cout << endl;
         }
@@ -396,8 +396,8 @@ using namespace std;
             cout << endl;
         }
         else if(craft == 2){
-            cout << "Initiate Test Mode for FH" << endl;
-            TestMode* TM = new TestMode(FH);
+            cout << "Initiate Test Mode for FHH" << endl;
+            TestMode* TM = new TestMode(FHH);
             TM->initiate();
             cout << endl;
         }
